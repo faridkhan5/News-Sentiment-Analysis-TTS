@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_news_articles(company_name, max_articles=10):
+def fetch_news_articles(company_name, max_articles=10):
     # url = f"https://www.google.com/search?q={company}&tbm=nws"
     base_url = f"https://news.google.com/rss/search?q={company_name}&hl=en-US&gl=US&ceid=US:en"
     response = requests.get(base_url)
