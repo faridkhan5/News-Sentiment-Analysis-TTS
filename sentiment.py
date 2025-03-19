@@ -1,19 +1,13 @@
-from textblob import TextBlob
-import requests
-from bs4 import BeautifulSoup
 from scraper import fetch_news_articles
 
+from textblob import TextBlob
+from transformers import pipeline
 
 def analyze_sentiment(text):
-    blob = TextBlob(text)
-    polarity = blob.sentiment.polarity
-
-    if polarity > 0:
-        return 'positive'
-    elif polarity < 0:
-        return 'negative'
-    else:
-        return 'neutral'
+    sentiment_pipeline = pipeline("sentiment-analysis",  model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
+    result = sentiment_pipeline(text)
+    sentiment = result[0]['label']
+    return sentiment
 
 def get_article_sentiment(article):
     content = article['content']
@@ -27,7 +21,7 @@ def get_article_sentiment(article):
     }
     return summary
 
-def get_company_sentiment(company_name, max_articles):
+def get_company_sentiment(company_name, max_articles=10):
     articles = fetch_news_articles(company_name, max_articles)
     if not articles:
         return None
