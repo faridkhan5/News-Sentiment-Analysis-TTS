@@ -3,6 +3,7 @@ from scraper import fetch_news_articles
 from textblob import TextBlob
 from transformers import pipeline
 
+
 def analyze_sentiment(text):
     sentiment_pipeline = pipeline("sentiment-analysis",  model="distilbert/distilbert-base-uncased-finetuned-sst-2-english")
     result = sentiment_pipeline(text)
