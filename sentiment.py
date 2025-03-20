@@ -14,18 +14,29 @@ def analyze_sentiment(text):
     result = sentiment_pipeline(text)
     return result[0]['label']
 
+def get_sentiment_color(sentiment):
+    sentiment = sentiment.lower()
+    if sentiment == 'positive':
+        return 'MediumSeaGreen'
+    elif sentiment == 'neutral':
+        return 'DodgerBlue'
+    else:
+        return 'red'
+    
 def get_articles_sentiment(articles):
     if not articles:
         return []
 
-    return [
-        {
+    sentiment_data = []
+    for article in articles:
+        sentiment = analyze_sentiment(article['content'])
+        sentiment_data.append({
             'title': article.get('title', 'Untitled'),
             'content': article['content'],
-            'sentiment': analyze_sentiment(article['content'])   
-        }
-        for article in articles
-    ]
+            'sentiment': sentiment,
+            'sentiment_color': get_sentiment_color(sentiment)  
+        })
+    return sentiment_data
 
 def compare_articles(articles):
     articles_content = []
