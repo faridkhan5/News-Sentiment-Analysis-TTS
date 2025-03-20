@@ -49,10 +49,17 @@ def main():
     """, unsafe_allow_html=True)
 
     # Comparsion
-
     st.markdown("### Comparsion Analysis")
-    st.markdown(analyzer.compare_articles(articles))
+    comparsion = analyzer.compare_articles(articles)
+    st.markdown(comparsion)
 
+    # TTS
+    st.markdown("### Hindi TTS")
+    if st.button("Generate Hindi Speech"):
+        with st.spinner("Generating audio..."):
+            tts_output = analyzer.get_hindi_speech(comparsion)
+            if tts_output:
+                st.audio(tts_output['audio_file'], format='audio/mp3')
 
 if __name__ == "__main__":
     main()

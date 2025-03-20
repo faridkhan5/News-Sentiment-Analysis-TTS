@@ -1,6 +1,5 @@
 import utils
 import openai
-from dotenv import load_dotenv
 
 
 class ArticleAnalyzer:
@@ -57,3 +56,7 @@ class ArticleAnalyzer:
             max_tokens=500
         )
         return response.choices[0].message.content.strip()
+    
+    def get_hindi_speech(self, text):
+        output = utils.hindi_speech(self.client, text)
+        return output
