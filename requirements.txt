@@ -4,3 +4,5 @@ lxml
 textblob
 transformers
 torch
+openai
+python-dotenv
