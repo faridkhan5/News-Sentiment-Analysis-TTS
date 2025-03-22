@@ -2,13 +2,10 @@ from api import ArticleAnalyzer
 import utils
 from logging_setup import logger
 import streamlit as st
-from dotenv import load_dotenv
-
 
 
 def main():
     logger.info("Application started")
-    load_dotenv()
 
     analyzer = ArticleAnalyzer()
 
