@@ -35,3 +35,22 @@ This project is a web-based application that extracts news articles related to a
 * **OpenAI GPT-4:** NLP model for comparative analysis
 * **OpenAI’s TTS API (gpt-4o-mini-tts):** Hindi speech synthesis
 * **Streamlit:** Frontend UI framework
+
+## Installation
+1. Clone the repository:
+   ```
+   git clone https://github.com/faridkhan5/News-Sentiment-Analysis-TTS.git
+   cd news-sentiment-analysis
+   ```
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```  
+3. Setup environment variables in .env file:
+   ```
+   OPENAI_API_KEY="your_openai_api_key"
+   ```
+4. Run the application:
+   ```
+   streamlit run app.py
+   ```
