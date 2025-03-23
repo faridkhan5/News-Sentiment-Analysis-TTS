@@ -1,3 +1,14 @@
+---
+title: News Sentiment Analysis TTS
+emoji: 📰
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: "1.43.2"
+app_file: app.py
+pinned: false
+---
+
 # News-Sentiment-Analysis-TTS
 
 ## About
