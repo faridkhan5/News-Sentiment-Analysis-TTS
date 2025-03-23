@@ -1,6 +1,7 @@
 requests
 bs4
 lxml
+html5lib
 textblob
 transformers
 torch
